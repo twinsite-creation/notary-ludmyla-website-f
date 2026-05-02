@@ -292,7 +292,7 @@ details summary::-webkit-details-marker {
 }
 
 .nav__link {
-  font-size: 12.5px;
+  font-size: 16px;
   font-weight: 400;
   letter-spacing: 0.07em;
   color: rgba(255, 255, 255, 0.65);
@@ -362,10 +362,10 @@ details summary::-webkit-details-marker {
 }
 
 .burger.active .burger__line:nth-child(1) {
-  transform: translateY(7.5px) rotate(45deg);
+  transform: translateY(4.5px) rotate(45deg);
 }
 .burger.active .burger__line:nth-child(2) {
-  transform: translateY(-7.5px) rotate(-45deg);
+  transform: translateY(-3px) rotate(-45deg);
 }
 
 /* =============================================
@@ -1273,7 +1273,7 @@ a.contact-row:hover {
 
 .contact-row span,
 .contact-row address {
-  font-size: 12.5px;
+  font-size: 16px;
   font-weight: 300;
   color: var(--tertiary);
 }
@@ -1414,7 +1414,7 @@ a.contact-row:hover {
 }
 
 .footer__hours address {
-  font-size: 12.5px;
+  font-size: 16px;
   font-weight: 300;
   color: rgba(255, 255, 255, 0.26);
   line-height: 1.65;
