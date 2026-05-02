@@ -389,7 +389,7 @@ details summary::-webkit-details-marker {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 30%;
+  object-position: right 30%;
   animation: heroZoom 14s ease-out forwards;
 }
 
