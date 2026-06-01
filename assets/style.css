@@ -97,7 +97,7 @@ details summary::-webkit-details-marker {
 }
 
 .section {
-  padding: 96px 0;
+  padding: 70px 0;
 }
 
 /* ---------- TYPOGRAPHY ---------- */
@@ -146,7 +146,7 @@ details summary::-webkit-details-marker {
   gap: 8px;
   padding: 13px 28px;
   font-family: var(--font-body);
-  font-size: 13.5px;
+  font-size: 15px;
   font-weight: 500;
   letter-spacing: 0.05em;
   border: 1.5px solid transparent;
@@ -318,8 +318,8 @@ details summary::-webkit-details-marker {
 }
 
 .nav__link--cta {
-  color: rgba(255, 255, 255, 0.75);
-  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: rgba(255, 255, 255, 0.85);
+  border: 2px solid rgba(255, 255, 255, 0.3);
   padding: 7px 18px;
   border-radius: var(--radius-sm);
   transition:
@@ -388,7 +388,7 @@ details summary::-webkit-details-marker {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: right 30%;
+  object-position: left 30%;
   animation: heroZoom 14s ease-out forwards;
 }
 
@@ -448,7 +448,7 @@ details summary::-webkit-details-marker {
 
 .hero__title {
   font-family: var(--font-display);
-  font-size: clamp(2.4rem, 5vw, 4rem);
+  font-size: 50px;
   font-weight: 700;
   color: var(--white);
   line-height: 1.12;
@@ -500,21 +500,6 @@ details summary::-webkit-details-marker {
   width: 11px;
   height: 11px;
   opacity: 0.55;
-}
-
-/* Scroll hint */
-.hero__scroll-hint {
-  position: absolute;
-  bottom: 30px;
-  left: var(--gap);
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-size: 10px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.25);
-  z-index: 1;
 }
 
 .scroll-line {
@@ -685,22 +670,6 @@ details summary::-webkit-details-marker {
 
 .svc-card:hover::before {
   width: 100%;
-}
-
-/* =============================================
-   NUMBER
-   ============================================= */
-
-.svc-card__num {
-  position: absolute;
-  top: 38px;
-  right: 22px;
-  font-family: var(--font-display);
-  font-size: 2.3rem;
-  font-weight: 700;
-  line-height: 1;
-  color: rgba(47, 79, 79, 0.06);
-  user-select: none;
 }
 
 /* =============================================
@@ -1065,6 +1034,290 @@ details summary::-webkit-details-marker {
 }
 
 /* =============================================
+   TEAM
+   ============================================= */
+.team {
+  background: var(--white);
+  padding-top: 0;
+  overflow: hidden;
+}
+
+/* ── Banner (group photo, full-width, outside container) ── */
+.team__banner {
+  position: relative;
+  width: 100%;
+  height: clamp(280px, 38vw, 520px);
+  overflow: hidden;
+  background: var(--primary);
+}
+
+.team__banner-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 70%;
+  display: block;
+  filter: grayscale(12%);
+}
+
+.team__banner-veil {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent 30%,
+    rgba(47, 79, 79, 0.72) 100%
+  );
+  pointer-events: none;
+}
+
+.team__banner-caption {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  width: 100%;
+  padding: 0 var(--gap);
+}
+
+.team__banner-caption p {
+  font-family: var(--font-display);
+  font-size: clamp(1.1rem, 2.2vw, 1.55rem);
+  font-weight: 400;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.72);
+  margin: 6px 0 0;
+  line-height: 1.3;
+}
+
+/* ── Section header ── */
+.team__head {
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  gap: 32px 56px;
+  align-items: end;
+  padding: 64px 0 52px;
+  border-bottom: 1px solid var(--border-mid);
+  margin-bottom: 0;
+}
+
+.team__head .section-title {
+  margin-bottom: 0;
+}
+
+.team__head .section-desc {
+  padding-bottom: 4px;
+}
+
+/* ── Members grid ── */
+.team__members {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-left: 1px solid var(--border-mid);
+}
+
+/* ── Single member card ── */
+.tmember {
+  border-right: 1px solid var(--border-mid);
+  border-bottom: 1px solid var(--border-mid);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  transition: background var(--t-normal) var(--ease-in-out);
+}
+
+.tmember:hover {
+  background: var(--secondary-light);
+}
+
+/* Animated top accent — same pattern as svc-cards */
+.tmember::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--primary);
+  transition: width 0.45s var(--ease-out);
+  z-index: 2;
+}
+
+.tmember:hover::before {
+  width: 100%;
+}
+
+/* Photo */
+.tmember__photo-wrap {
+  overflow: hidden;
+  aspect-ratio: 3 / 4;
+  background: var(--secondary-dark);
+  flex-shrink: 0;
+}
+
+.tmember__photo {
+  width: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  transition: transform 0.55s var(--ease-out);
+}
+
+.tmember:hover .tmember__photo {
+  transform: scale(1.03);
+  filter: grayscale(0%);
+}
+
+/* Info block */
+.tmember__info {
+  padding: 26px 28px 32px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  border-top: 1px solid var(--border);
+  position: relative;
+}
+
+/* Big faded number — editorial detail */
+.tmember__num {
+  position: absolute;
+  top: 18px;
+  right: 20px;
+  font-family: var(--font-display);
+  font-size: 2.6rem;
+  font-weight: 700;
+  line-height: 1;
+  color: rgba(47, 79, 79, 0.055);
+  user-select: none;
+  pointer-events: none;
+}
+
+.tmember__role {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--tertiary-light);
+  margin-bottom: 10px;
+}
+
+.tmember__name {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--primary);
+  line-height: 1.28;
+  margin-bottom: 14px;
+}
+
+.tmember__name em {
+  font-style: italic;
+  font-weight: 400;
+}
+
+.tmember__desc {
+  font-size: 16px;
+  font-weight: 300;
+  color: var(--tertiary);
+  line-height: 1.8;
+  margin: 0;
+}
+
+/* Facts list — for lead card */
+.tmember__facts {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 0;
+}
+
+.tmember__facts li {
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--tertiary);
+  padding-left: 14px;
+  position: relative;
+  line-height: 1.6;
+}
+
+.tmember__facts li::before {
+  content: "–";
+  position: absolute;
+  left: 0;
+  color: var(--primary-light);
+  font-weight: 400;
+}
+
+/* =============================================
+   TEAM RESPONSIVE
+   ============================================= */
+@media (max-width: 900px) {
+  .team__head {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 52px 0 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .team__members {
+    grid-template-columns: 1fr;
+    border-left: none;
+  }
+
+  .tmember {
+    border-right: none;
+    border-left: 1px solid var(--border-mid);
+    flex-direction: row;
+  }
+
+  .tmember__photo-wrap {
+    width: 38%;
+    flex-shrink: 0;
+    aspect-ratio: auto;
+    min-height: 200px;
+  }
+
+  .tmember__info {
+    border-top: none;
+    border-left: 1px solid var(--border-mid);
+    justify-content: center;
+  }
+
+  .tmember__num {
+    top: 12px;
+    right: 14px;
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .tmember {
+    flex-direction: column;
+    border-left: 1px solid var(--border-mid);
+  }
+
+  .tmember__photo-wrap {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    min-height: auto;
+  }
+
+  .tmember__info {
+    border-left: none;
+    border-top: 1px solid var(--border-mid);
+  }
+
+  .team__banner-caption p {
+    font-size: 1rem;
+  }
+}
+
+/* =============================================
    WHY US
    ============================================= */
 .why {
@@ -1405,7 +1658,7 @@ details summary::-webkit-details-marker {
 }
 
 .footer__nav a {
-  font-size: 13.5px;
+  font-size: 16px;
   font-weight: 300;
   color: rgba(255, 255, 255, 0.65);
   transition: color var(--t-fast);
@@ -1537,9 +1790,12 @@ details summary::-webkit-details-marker {
    RESPONSIVE
    ============================================= */
 @media (max-width: 1024px) {
-  /*.services__grid {
-    grid-template-columns: repeat(2, 1fr);
-  }*/
+  .hero__img {
+    object-position: 30% 30%;
+  }
+  .hero__title {
+    fzont-size: 34px;
+  }
   .why__grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -1595,6 +1851,10 @@ details summary::-webkit-details-marker {
     flex-direction: column;
     gap: 28px;
     text-align: center;
+  }
+
+  .hero__img {
+    object-position: 36% 30%;
   }
 
   .hero__body {
