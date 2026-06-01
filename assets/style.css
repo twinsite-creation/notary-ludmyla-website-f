@@ -1794,7 +1794,7 @@ details summary::-webkit-details-marker {
     object-position: 30% 30%;
   }
   .hero__title {
-    fzont-size: 34px;
+    font-size: 37px;
   }
   .why__grid {
     grid-template-columns: repeat(2, 1fr);
@@ -1829,6 +1829,10 @@ details summary::-webkit-details-marker {
 
   .burger {
     display: flex;
+  }
+
+  .hero__eyebrow::before {
+    width: 4px;
   }
 
   .nav {
