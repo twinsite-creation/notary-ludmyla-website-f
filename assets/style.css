@@ -781,7 +781,6 @@ details summary::-webkit-details-marker {
 @media (max-width: 768px) {
   .services__grid {
     grid-template-columns: 1fr;
-    margin-top: 42px;
   }
 
   .svc-card {
@@ -1790,6 +1789,40 @@ details summary::-webkit-details-marker {
    RESPONSIVE
    ============================================= */
 @media (max-width: 1024px) {
+  .burger {
+    display: flex;
+  }
+
+  .nav {
+    position: fixed;
+    inset: 0;
+    background: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateX(100%);
+    transition: transform var(--t-slow) var(--ease-out);
+    z-index: 250;
+  }
+
+  .nav.open {
+    transform: translateX(0);
+  }
+
+  .nav__list {
+    flex-direction: column;
+    gap: 28px;
+    text-align: center;
+  }
+
+  .section-head {
+    margin-bottom: 26px;
+  }
+
+  .services__grid {
+    margin-top: 20px;
+  }
+
   .hero__img {
     object-position: 30% 30%;
   }
@@ -1827,33 +1860,7 @@ details summary::-webkit-details-marker {
 
 @media (max-width: 768px) {
   .section {
-    padding: 64px 0;
-  }
-
-  .burger {
-    display: flex;
-  }
-
-  .nav {
-    position: fixed;
-    inset: 0;
-    background: var(--primary);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transform: translateX(100%);
-    transition: transform var(--t-slow) var(--ease-out);
-    z-index: 250;
-  }
-
-  .nav.open {
-    transform: translateX(0);
-  }
-
-  .nav__list {
-    flex-direction: column;
-    gap: 28px;
-    text-align: center;
+    padding: 44px 0;
   }
 
   .hero__img {
@@ -1874,9 +1881,6 @@ details summary::-webkit-details-marker {
     display: none;
   }
 
-  /* .services__grid {
-    grid-template-columns: 1fr;
-  } */
   .why__grid {
     grid-template-columns: 1fr;
   }
@@ -1902,6 +1906,11 @@ details summary::-webkit-details-marker {
   .hero__cta {
     flex-direction: column;
   }
+
+  .hero__cta .btn {
+    justify-content: center;
+  }
+
   .hero__trust {
     flex-direction: column;
   }
@@ -1972,5 +1981,64 @@ details summary::-webkit-details-marker {
     transform: translateY(-4px);
     opacity: 1;
     color: var(--white);
+  }
+}
+
+.telegram-float {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  height: 52px;
+  padding: 0 18px;
+
+  border-radius: 999px;
+
+  background: var(--primary);
+  color: #fff;
+
+  text-decoration: none;
+
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+
+  z-index: 999;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.telegram-float svg {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+}
+
+.telegram-float__text {
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.telegram-float:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 768px) {
+  .telegram-float {
+    width: 56px;
+    height: 56px;
+    padding: 0;
+    justify-content: center;
+    border-radius: 50%;
+  }
+
+  .telegram-float__text {
+    display: none;
   }
 }
